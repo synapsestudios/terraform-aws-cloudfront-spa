@@ -12,5 +12,6 @@ module "spa" {
 }
 
 output "url" {
-  value = "https://${module.spa.cloudfront_domain_name}"
+  description = "HTTPS URL of the CloudFront distribution that serves the app."
+  value       = "https://${module.spa.cloudfront_domain_name}"
 }
