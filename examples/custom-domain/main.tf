@@ -9,12 +9,14 @@ provider "aws" {
 }
 
 variable "domain_name" {
-  type    = string
-  default = "app.example.com"
+  description = "Domain name the app is served on. The example issues an ACM certificate for it and points it at the distribution."
+  type        = string
+  default     = "app.example.com"
 }
 
 variable "route53_zone_id" {
-  type = string
+  description = "ID of the Route 53 hosted zone that holds domain_name. The example writes the certificate validation and alias records here."
+  type        = string
 }
 
 resource "aws_acm_certificate" "this" {
